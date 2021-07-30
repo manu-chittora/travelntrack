@@ -1,0 +1,20 @@
+<%- include("partials/header1") %>
+<div class= "container">
+    <h3>Location Verification</h3>
+    <div class="row d-flex justify-content-center">
+        <div id="output"></div>
+        <div id="dist"></div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <% destinations.forEach(function(place){%>
+                    <a class="dropdown-item" href="/check/<%=place.uniquename%>"><%=place.namelocation%></a>
+                    <!--<button class="dropdown-item" onclick="getdist()"><%=place.namelocation%></button>-->
+                <%});%>
+            </div>
+          </div>
+    </div>
+
+<%- include("partials/footer1") %>

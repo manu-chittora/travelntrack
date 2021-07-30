@@ -1,0 +1,53 @@
+<%- include("partials/header1") %>
+<form id="autosubmit" action="/addpoints" method="POST">
+    <input type="hidden"  id="username"   name="username"   value="<%=currentUser.username%>">
+    <input type="hidden"  id="uniquename" name="uniquename" value="<%=data.returned.uniquename%>">
+    <input type="hidden"  id="points"     name="points"     value="<%=data.returned.points%>">
+    <input type="hidden"  id="mylatitude" name="mylatitude" value="a">
+    <input type="hidden"  id="mylongitude"name="mylongitude"value="b">
+    <input type="hidden"  id="distance"   name="distance"   value="c">
+</form>
+<% if(currentUser.visited.includes(data.returned.uniquename)){%>
+    <div class="container ">
+        <div><h1 ><%=data.returned.namelocation%></h1></div>
+        <div class="row d-flex justify-content-center">
+            <img style="width:350 px;height:150 px;" class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4" src="<%=data.returned.image%>">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                
+                <div><h4 id="destlat"><%=data.returned.namelocation%>'s LATITUDE : <%=data.returned.latitude%></h4></div>
+                <div><h4 id="destlong"><%=data.returned.namelocation%>'s LONGITUDE : <%=data.returned.longitude%></h4></div>
+                <div><h4 id="mylatitude">Your LATITUDE : <%=data.mylatitude%></h4></div>
+                <div><h4 id="mylongitude">Your LONGITUDE : <%=data.mylongitude%></h4></div>
+                <div><h4 id="distance">Your DISTANCE  : <%=data.distance%></h4></div>
+                
+            </div>
+        </div>
+    </div>
+    <h5 style="margin-bottom:50px; margin-top:10px;"class="text-center">You Have Already visited this one !! Please try some other...</h5>
+    
+    <%} else {%>
+        <script>
+        document.getElementById("mylatitude").setAttribute("value",<%-data.mylatitude%>);
+        document.getElementById("mylongitude").setAttribute("value",<%-data.mylongitude%>);
+        document.getElementById("distance").setAttribute("value",<%-data.distance%>);
+        document.getElementById("autosubmit").submit();
+        </script>
+        <div class="container ">
+            <div><h1 ><%=data.returned.namelocation%></h1></div>
+            <div class="row d-flex justify-content-center">
+                <img style="width:350 px;height:150 px;" class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4" src="<%=data.returned.image%>">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                    
+                    <div><h4 id="destlat"><%=data.returned.namelocation%>'s LATITUDE : <%=data.returned.latitude%></h4></div>
+                    <div><h4 id="destlong"><%=data.returned.namelocation%>'s LONGITUDE : <%=data.returned.longitude%></h4></div>
+                    <div><h4 id="mylatitude">Your LATITUDE : <%=data.mylatitude%></h4></div>
+                    <div><h4 id="mylongitude">Your LONGITUDE : <%=data.mylongitude%></h4></div>
+                    <div><h4 id="distance">Your DISTANCE is : <%=data.distance%></h4></div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <h1>congo</h1>
+    <%}%>
+<%- include("partials/footer1") %>
