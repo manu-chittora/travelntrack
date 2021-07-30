@@ -21,8 +21,8 @@
             <div><h4 id="yourlong"></h4></div>
             <div><h4 id="yourlat"></h4></div>
             <div><h4 id="yourdist"></h4></div>
-            <div><h4 data-near=<%=currentUser.points%> id="near"></h4></div>
         </div>
+        <div style="margin-bottom:100px;"><h4 id="near"></h4></div>
     </div>
 </div>
 <!--check with logged in user ka database-->
@@ -51,11 +51,11 @@
                                   Math.sin(Δλ/2) * Math.sin(Δλ/2);
                         const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
                               d = R * c; // in metres
-                              
+                              d = (Number)(d).toFixed(2);
                         x = document.getElementById("yourdist");
-                        x.innerHTML="<div>Your DISTANCE: </div>"  +d; 
+                        x.innerHTML="<div>Your DISTANCE: </div>"  +d+" mt"; 
                         console.log(d);
-                        if(d>100000)
+                        if(d>100)
                         {
                             var y=document.getElementById("near");
                             y.innerHTML="Too far from destination!! Get Closer to get points :)"; 
