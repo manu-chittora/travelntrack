@@ -219,7 +219,6 @@ app.get("/check/:uniquename", isLoggedIn, function(req, res)
     });
 
 });
-
 /*app.get("/addnew", function(req, res)
 {
     res.render("addnew.ejs");
