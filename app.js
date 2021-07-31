@@ -176,7 +176,8 @@ app.post("/addpoints", (req, res)=>{
                                     res.send("error");
                                     return res.redirect("/");
                                 }
-                    res.render("addpoints", {data:{returned:returned, mylatitude:req.body.mylatitude, mylongitude:req.body.mylongitude, distance:req.body.distance}});
+                                res.redirect("/leaderboard");
+                    //res.render("addpoints", {data:{returned:returned, mylatitude:req.body.mylatitude, mylongitude:req.body.mylongitude, distance:req.body.distance}});
                     });
                 })
             }

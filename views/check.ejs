@@ -5,12 +5,7 @@
 <%var latitude, d=0;%>
 <%var longitude;%>
 <h1>Location Verification</h1>
-<form id="autosubmit" action="/detect" method="POST">
-    <input type="hidden"  id="uniquename"   name="uniquename" value="<%=returned.uniquename%>">
-    <input type="hidden"  id="mylatitude"   name="mylatitude" value="a">
-    <input type="hidden"  id="mylongitude"  name="mylongitude" value="b">
-    <input type="hidden"  id="distance"     name="distance" value="c">
-</form>
+
 <div class="container ">
     <div class="row d-flex justify-content-center">
         <img style="width:350 px;height:150 px;" class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4" src="<%=returned.image%>">
@@ -24,6 +19,18 @@
         </div>
         <div style="margin-bottom:100px;"><h4 id="near"></h4></div>
     </div>
+</div>
+<div class="text-center"><h4>You Are Near the Destinations <i class="fas fa-check"></i></h4></div>
+    <div class="text-center"><h4>Check if its your first visit!!</h4></div>
+<div class="row d-flex justify-content-center">
+    
+<form id="autosubmit" action="/detect" method="POST">
+    <input type="hidden"  id="uniquename"   name="uniquename" value="<%=returned.uniquename%>">
+    <input type="hidden"  id="mylatitude"   name="mylatitude" value="a">
+    <input type="hidden"  id="mylongitude"  name="mylongitude" value="b">
+    <input type="hidden"  id="distance"     name="distance" value="c">
+    <button style="margin-bottom: 100px;"type="hidden" id="sbm" class="btn btn-primary" value="Check">Check</button>
+</form>
 </div>
 <!--check with logged in user ka database-->
 <script>
@@ -55,7 +62,7 @@
                         x = document.getElementById("yourdist");
                         x.innerHTML="<div>Your DISTANCE: </div>"  +d+" mt"; 
                         console.log(d);
-                        if(d>100)
+                        if(d>500000)
                         {
                             var y=document.getElementById("near");
                             y.innerHTML="Too far from destination!! Get Closer to get points :)"; 
@@ -65,7 +72,7 @@
                             document.getElementById("mylatitude").setAttribute("value",latitude);
                             document.getElementById("mylongitude").setAttribute("value",longitude);
                             document.getElementById("distance").setAttribute("value",d);
-                            document.getElementById("autosubmit").submit();
+                            document.getElementById("sbm").setAttribute("type","submit");
                         }
                         console.log(<%=returned.points%>);
                         console.log(document.getElementById("near").dataset.near);

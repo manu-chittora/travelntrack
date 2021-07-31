@@ -32,7 +32,11 @@ background-image: linear-gradient(147deg, #f7accf 0%, #ff1053 74%);
   body{
     background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
   }
-  
+  .btnmgn
+  {
+    margin-left: 25%;
+    margin-bottom: 200px;
+  }
   .bgc
   {
     background-color: #000000;
@@ -102,6 +106,11 @@ font-size:35px;
   body{
     background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
   }
+  .btnmgn
+  {
+    margin-left: 30%;
+    margin-bottom: 200px;
+  }
   .bgc
   {
     background-color: #000000;
@@ -169,6 +178,11 @@ animation: slide 60s linear infinite;
 @media only screen and (min-width: 768px )    {
   body{
     background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  }
+  .btnmgn
+  {
+    margin-left: 37%;
+    margin-bottom: 200px;
   }
   .bgc
   {
