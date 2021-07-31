@@ -41,8 +41,9 @@ var Destination=mongoose.model("Destination", destinationSchema);
 /******************/  
 var UserSchema = new mongoose.Schema({
     fullname:String,
-    username: String,
-    password: String,
+    username:String,
+    password:String,
+    profile:String,
     points:Number,
     bucketlist:[{
         type: mongoose.Schema.Types.ObjectId,
@@ -91,7 +92,11 @@ app.get('/signup', (req, res) => {
     res.render("signup"); 
 })
 app.post('/signup', (req, res) => {
-    var newUser = new User({username: req.body.username, fullname: req.body.name, points:0});
+    if(req.body.image.length==0)
+    {
+        req.body.image.length=(String)("https://i.ibb.co/YNzjt8X/Clipart-Key-1461473.png");
+    }
+    var newUser = new User({username: req.body.username, fullname: req.body.name, points:0, profile:req.body.image});
     User.register(newUser, req.body.password, (err, user) => {
         if(err){
             console.log(err);
@@ -176,7 +181,7 @@ app.post("/addpoints", (req, res)=>{
                                     res.send("error");
                                     return res.redirect("/");
                                 }
-                                res.redirect("/leaderboard");
+                                res.redirect("/logout");
                     //res.render("addpoints", {data:{returned:returned, mylatitude:req.body.mylatitude, mylongitude:req.body.mylongitude, distance:req.body.distance}});
                     });
                 })
@@ -220,10 +225,10 @@ app.get("/check/:uniquename", isLoggedIn, function(req, res)
     });
 
 });
-/*app.get("/addnew", function(req, res)
+app.get("/addnew", function(req, res)
 {
     res.render("addnew.ejs");
-});*/
+});
 app.post('/destinations', (req, res)=> {
 
     var location=req.body.name;

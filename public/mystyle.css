@@ -1,3 +1,4 @@
+
 .errr-msg
 {
   padding:10 px 15px;
@@ -29,6 +30,10 @@ background-image: linear-gradient(147deg, #f7accf 0%, #ff1053 74%);
 }
 
 @media only screen and (max-width: 576px) {
+  .profilefont
+{
+  font-size:23px;
+}
   body{
     background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
   }
@@ -103,6 +108,10 @@ font-size:35px;
         }
 }
 @media only screen and (min-width: 576px ) and (max-width: 768px)  {
+  .profilefont
+{
+  font-size:30px;
+}
   body{
     background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
   }
@@ -176,9 +185,14 @@ animation: slide 60s linear infinite;
         }
 }
 @media only screen and (min-width: 768px )    {
+  .profilefont
+{
+  font-size:35px;
+}
   body{
     background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
   }
+  
   .btnmgn
   {
     margin-left: 37%;
