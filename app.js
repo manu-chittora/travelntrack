@@ -190,7 +190,7 @@ app.post("/addpoints", (req, res)=>{
         }
     })
 })
-app.get("/explore", function(req, res)
+/*app.get("/explore", function(req, res)
 {
     res.render("nearby");
 });
@@ -204,7 +204,7 @@ app.post("/explore", (req, res)=>{
         res.render("nearbydestinations", {destinations:all});
     });
     
-})
+})*/
 app.get("/profile/:username", function(req,res){
     User.findOne({username: req.params.username}, function(err,foundUser){
         if(err){
@@ -225,11 +225,11 @@ app.get("/check/:uniquename", isLoggedIn, function(req, res)
     });
 
 });
-app.get("/addnew", function(req, res)
+/*app.get("/addnew", function(req, res)
 {
     res.render("addnew.ejs");
-});
-app.post('/destinations', (req, res)=> {
+});*/
+/*app.post('/destinations', (req, res)=> {
 
     var location=req.body.name;
     var city=req.body.city;
@@ -259,7 +259,7 @@ app.post('/destinations', (req, res)=> {
         }
     })
 
-});
+});*/
 app.get("/destinations/:uniquename", function(req, res)
 {
     Destination.findOne({uniquename:req.params.uniquename}, function(err, Place)
