@@ -3,6 +3,20 @@
     <div class="container">
         <div class="row d-flex justify-content-center" >
             <div class="d-flex justify-content-center col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                <%
+              let imgSrc = place.image;
+              
+              // override for specific places
+              if (place.uniquename === "akshardham") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Swaminarayan_Akshardham%2C_Delhi.jpg/500px-Swaminarayan_Akshardham%2C_Delhi.jpg";
+              } else if (place.uniquename === "hawa-mahal") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/500px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg";
+              } else if (place.uniquename === "humayuns-tomb") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Humayun%27s_Tomb_from_the_entrance%2C_Delhi.jpg/500px-Humayun%27s_Tomb_from_the_entrance%2C_Delhi.jpg";
+              } else if (place.uniquename === "goldentemple") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Golden_Temple_of_Amrithsar_7.jpg/500px-The_Golden_Temple_of_Amrithsar_7.jpg";
+              }
+              %>
                 <img height="300px" width="300px" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; border-radius: 15px;"  src="<%=place.image%>">
             </div>
 
