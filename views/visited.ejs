@@ -23,7 +23,21 @@
         <div class="container ">
             <div><h1 ><%=data.returned.namelocation%></h1></div>
             <div class="row d-flex justify-content-center">
-                <img style="width:350 px;height:150 px;" class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4" src="<%=data.returned.image%>">
+                <%
+              let imgSrc = data.returned.image;
+              
+              // override for specific places
+              if (data.returned.uniquename === "akshardham") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Swaminarayan_Akshardham%2C_Delhi.jpg/500px-Swaminarayan_Akshardham%2C_Delhi.jpg";
+              } else if (data.returned.uniquename === "hawa-mahal") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/500px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg";
+              } else if (data.returned.uniquename === "humayuns-tomb") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Humayun%27s_Tomb_from_the_entrance%2C_Delhi.jpg/500px-Humayun%27s_Tomb_from_the_entrance%2C_Delhi.jpg";
+              } else if (data.returned.uniquename === "goldentemple") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Golden_Temple_of_Amrithsar_7.jpg/500px-The_Golden_Temple_of_Amrithsar_7.jpg";
+              }
+              %>
+                <img style="width:350 px;height:150 px;" class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4" src="<%=imgSrc%>">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
                     
                     <div><h4 id="destlat"><%=data.returned.namelocation%>'s LATITUDE : <%=data.returned.latitude%></h4></div>
