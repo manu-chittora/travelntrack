@@ -5,7 +5,22 @@
         <div class="row d-flex justify-content-center">
         <% destinations.forEach(function(place){%>
             <div class="card" style="margin-bottom:40px;margin-left:10px;border-radius: 20px;   height:430px; max-width: 260px;">
-                <img class="card-img-top" style="border-radius: 0px; height:180px;" src="<%=place.image%>" alt="Card image cap">
+              <%
+              let imgSrc = place.image;
+              
+              // override for specific places
+              if (place.uniquename === "akshardham") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Swaminarayan_Akshardham%2C_Delhi.jpg/500px-Swaminarayan_Akshardham%2C_Delhi.jpg";
+              } else if (place.uniquename === "hawa-mahal") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg/500px-East_facade_Hawa_Mahal_Jaipur_from_ground_level_%28July_2022%29_-_img_01.jpg";
+              } else if (place.uniquename === "humayuns-tomb") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Humayun%27s_Tomb_from_the_entrance%2C_Delhi.jpg/500px-Humayun%27s_Tomb_from_the_entrance%2C_Delhi.jpg";
+              } else if (place.uniquename === "goldentemple") {
+                  imgSrc = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Golden_Temple_of_Amrithsar_7.jpg/500px-The_Golden_Temple_of_Amrithsar_7.jpg";
+              }
+              %>
+              
+              <img class="card-img-top" style="border-radius: 0px; height:180px;" src="<%=imgSrc%>" alt="Card-image-cap">
                 <div class="list card-body "style="border-top-radius: 0px;">
                   <h5 class="card-title"><%=place.namelocation%></h5>
                   <p class="card-text"><%=place.namelocation%> is located in <%=place.city%> city of <%=place.state%>. It's latitude is <%=place.latitude%> and longitude is <%=place.longitude%></p>
